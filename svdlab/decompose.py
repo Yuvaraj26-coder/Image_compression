@@ -37,7 +37,7 @@ def cumulative_energy(S: np.ndarray) -> np.ndarray:
     total = np.sum(values * values)
     if total <= 0:
         return np.zeros_like(values)
-    return np.cumsum(values * values) / total
+    return np.asarray(np.cumsum(values * values) / total, dtype=np.float64)
 
 
 def rank_for_energy(S: np.ndarray, target_energy: float = 0.95) -> int:
